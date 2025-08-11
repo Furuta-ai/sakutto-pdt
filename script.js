@@ -14,6 +14,7 @@ class TimeConverter {
         this.pdtLabel = document.getElementById('pdtLabel');
         this.pdtTime = document.getElementById('pdtTime');
         this.timeDiff = document.getElementById('timeDiff');
+        this.pstTime = document.getElementById('pstTime');
         this.dstWarning = document.getElementById('dstWarning');
     }
 
@@ -242,6 +243,10 @@ class TimeConverter {
         this.pdtLabel.textContent = tzLabel;
         this.pdtTime.textContent = this.formatDateTime(pacificTime);
         this.timeDiff.textContent = `（${tzInfo}, ${timeDiff}）`;
+        
+        // PST時間を常に表示（JST - 17時間）
+        const pstTime = new Date(utcTime.getTime() - 8 * 60 * 60 * 1000);
+        this.pstTime.textContent = this.formatDateTime(pstTime);
         
         
         if (isDSTTransition) {
