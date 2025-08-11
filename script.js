@@ -14,7 +14,7 @@ class TimeConverter {
         this.pdtLabel = document.getElementById('pdtLabel');
         this.pdtTime = document.getElementById('pdtTime');
         this.timeDiff = document.getElementById('timeDiff');
-        this.pstTime = document.getElementById('pstTime');
+        this.pstDisplay = document.getElementById('pstDisplay');
         this.dstWarning = document.getElementById('dstWarning');
     }
 
@@ -246,7 +246,8 @@ class TimeConverter {
         
         // PST時間を常に表示（UTC-8、JST-17時間）
         const pstTime = new Date(utcTime.getTime() + (-8) * 60 * 60 * 1000);
-        this.pstTime.textContent = this.formatDateTime(pstTime);
+        const formattedPstTime = this.formatDateTime(pstTime);
+        this.pstDisplay.textContent = `自動計算したPST（${formattedPstTime}）`;
         
         
         if (isDSTTransition) {
