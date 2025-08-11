@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サクっとPDT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>サクっとPDT</h1>
+            <p class="subtitle">日本時間を北米西海岸時間に自動変換（夏時間対応・数字のみ入力OK）</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <input type="text" id="dateInput" placeholder="例: 20250811、0811、08111400" class="date-input">
+                <button id="convertBtn" class="convert-btn">変換</button>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+
+            <div id="resultBox" class="result-box hidden">
+                <div class="result-content">
+                    <div class="conversion-result">
+                        <div class="time-row">
+                            <span class="label">JST:</span>
+                            <span id="jstTime" class="time-value"></span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="time-row main-result">
+                            <span id="pdtLabel" class="label"></span>
+                            <span id="pdtTime" class="time-value"></span>
+                            <span id="timeDiff" class="time-diff"></span>
+                        </div>
+                    </div>
+                    <div id="dstWarning" class="dst-warning hidden">
+                        ※ この日は北米で夏時間の切替があります。実際の予定は現地カレンダーで再確認してください。
+                    </div>
+                </div>
+                <button id="resetBtn" class="reset-btn">もう一回変換する</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 サクっとPDT</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
